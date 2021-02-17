@@ -12,6 +12,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip sceneDefaultMusic;
     public AudioClip sceneDefaultAmbience;
 
+    public bool muteMusic = false;
+    public bool muteAmb = false;
+    public bool muteGameSFX = false;
+    public bool mutePlayerSFX = false;
+
 
 
 
@@ -30,6 +35,24 @@ public class AudioManager : MonoBehaviour
      
     void Update()
     {
+        if(muteMusic == true)
+        {
+            musicManager.GetComponent<AudioSource>().mute = true;
+        }
+
+        if (muteAmb == true)
+        {
+            ambienceManager.GetComponent<AudioSource>().mute = true;
+        }
+
+        if (muteGameSFX == true)
+        {
+            gameSFX.GetComponent<AudioSource>().mute = true;
+        }
         
+        if (mutePlayerSFX == true)
+        {
+            playerSFX.GetComponent<AudioSource>().mute = true;
+        }
     }
 }
