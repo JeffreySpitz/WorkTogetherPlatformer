@@ -441,7 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88fab90ef8c9eff4dba37c0cda29f793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  altAmbience: {fileID: 0}
+  altAmbience: {fileID: 8300000, guid: e97f58d87e1f37b42b86976ae46ffb2a, type: 3}
 --- !u!65 &584415347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -880,9 +880,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 667481896, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: altAmbienceSnapshot
+      value: 
+      objectReference: {fileID: 6275441589108999650, guid: 87d2bc2f51f228d49bf69ffa52940e4d,
+        type: 2}
+    - target: {fileID: 667481896, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: defaultAmbienceSnapshot
+      value: 
+      objectReference: {fileID: 24500006, guid: 87d2bc2f51f228d49bf69ffa52940e4d,
+        type: 2}
+    - target: {fileID: 667481896, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
       propertyPath: ambienceClips.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 667481896, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: altAmbienceAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3336095137953409003, guid: 87d2bc2f51f228d49bf69ffa52940e4d,
+        type: 2}
     - target: {fileID: 667481896, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
       propertyPath: ambienceClips.Array.data[0]
       value: 
@@ -896,6 +911,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -6970587288311837355, guid: 87d2bc2f51f228d49bf69ffa52940e4d,
         type: 2}
+    - target: {fileID: 667481896, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: defaultAmbienceAudioSourceVolume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 674412815522814733, guid: 74cfdec40f2fdb0478d35024bb6cfa28,
         type: 3}
       propertyPath: m_Name
@@ -982,6 +1001,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_2
       objectReference: {fileID: 0}
+    - target: {fileID: 8823639495302129865, guid: ab7e8c72564846941862032743ee9a2e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8823639495302129869, guid: ab7e8c72564846941862032743ee9a2e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1050,6 +1074,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8823639495302129865, guid: ab7e8c72564846941862032743ee9a2e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8823639495302129869, guid: ab7e8c72564846941862032743ee9a2e,
         type: 3}

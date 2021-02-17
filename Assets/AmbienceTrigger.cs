@@ -31,7 +31,15 @@ public class AmbienceTrigger : MonoBehaviour
 
         if(currentlyPlayingAmbience == altAmbience) { return; }
 
-        ambienceManager.nonPlayingAmbienceEmitter.clip = altAmbience;
-        ambienceManager.nonPlayingAmbienceEmitter.Play();
+        
+        ambienceManager.PlayAltAmbienceFromTrigger(altAmbience);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.gameObject.CompareTag("Player")) { return; }
+       
+
+        ambienceManager.PlayDefaultFromTrigger();
     }
 }

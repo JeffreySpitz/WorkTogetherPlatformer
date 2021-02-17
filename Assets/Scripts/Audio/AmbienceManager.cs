@@ -9,20 +9,25 @@ using UnityEngine.Audio;
 public class AmbienceManager : MonoBehaviour
 {
     public List<AudioSource> ambienceEmitters = new List<AudioSource>();
-    public AudioClip altAmbience;
+   
     private AudioClip defaultSceneAmbience;
 
     private AudioSource ambienceEmitter1;
     private AudioSource ambienceEmitter2;
     private AudioSceneSetup audioSceneSetup;
 
-    public float defaultAmbienceAudioSourceVolume = 0.5f;
+    [SerializeField] float defaultAmbienceAudioSourceVolume = 1.0f;
 
     public AudioMixerGroup defaultAmbienceAudioMixerGroup;
+    public AudioMixerGroup altAmbienceAudioMixerGroup;
 
     public AudioClip currentlyPlayingAmbience;
 
     public AudioSource nonPlayingAmbienceEmitter;
+
+    public AudioMixerSnapshot defaultAmbienceSnapshot;
+    public AudioMixerSnapshot altAmbienceSnapshot;
+    public AudioMixerSnapshot silenceAmbienceSnapshot;
 
 
 
@@ -46,6 +51,7 @@ public class AmbienceManager : MonoBehaviour
         }
 
         ambienceEmitter1.outputAudioMixerGroup = defaultAmbienceAudioMixerGroup;
+        ambienceEmitter2.outputAudioMixerGroup = altAmbienceAudioMixerGroup;
 
         audioSceneSetup = FindObjectOfType<AudioSceneSetup>();
 
@@ -93,6 +99,37 @@ public class AmbienceManager : MonoBehaviour
         {
             nonPlayingAmbienceEmitter = ambienceEmitter2;
         }
+        else
+        {
+            Debug.Log("AmbienceManager.cs - both AudioEmittersare playing - no free emitter to chosse");
+        }
+
+    }
+
+    public void PlayAltAmbienceFromTrigger(AudioClip _altAmbienceClip)
+    {
+        ChooseNextEmitterToPlay();
+        nonPlayingAmbienceEmitter.clip = _altAmbienceClip;
+        nonPlayingAmbienceEmitter.loop = true;
+        nonPlayingAmbienceEmitter.Play();
+
+        altAmbienceSnapshot.TransitionTo(2f);
+    }
+
+    public void PlayDefaultFromTrigger()
+    {
+        defaultAmbienceSnapshot.TransitionTo(2f);
+    }
+
+    public void EndLevelAmbience()
+    {
+        silenceAmbienceSnapshot.TransitionTo(2f);
+    }
+
+    public void StartLevelAmbience()
+    {
 
     }
 }
+
+

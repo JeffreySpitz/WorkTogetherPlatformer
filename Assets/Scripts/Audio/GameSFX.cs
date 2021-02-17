@@ -12,6 +12,8 @@ public class GameSFX : MonoBehaviour
     public AudioClip levelStartSound;
     public AudioClip levelEndSound;
     public AudioClip playerDeathSound;
+    public AudioClip playerSwitchSound;
+   
 
     private AudioSource gameSFXEmitter;
 
@@ -65,6 +67,20 @@ public class GameSFX : MonoBehaviour
             }
             gameSFXEmitter.PlayOneShot(playerDeathSound);
         }
+        else if (_EventName == "playerSwitch" || _EventName == "PlayerSwitch")
+        {
+            if (playerSwitchSound == null)
+            {
+                if (debugOn)
+                {
+                    Debug.Log("Player Switch sound == null - RETURED");
+                }
+                return;
+            }
+            gameSFXEmitter.PlayOneShot(playerSwitchSound);
+        }
+
+
         else
         {
             if(debugOn)
