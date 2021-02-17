@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioSceneSetup : MonoBehaviour
 {
     public List<AudioClip> sceneMusicPlaylist = new List<AudioClip>();
-    public List<AudioClip> sceneAmbiencePlaylist = new List<AudioClip>();
+    public AudioClip sceneDefaultAmbience;
    
 
     // Start is called before the first frame update

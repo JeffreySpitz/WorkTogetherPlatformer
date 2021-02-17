@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
+
 public class GameSFX : MonoBehaviour
 {
     [SerializeField] bool debugOn;
