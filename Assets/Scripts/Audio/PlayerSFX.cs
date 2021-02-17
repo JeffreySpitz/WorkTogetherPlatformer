@@ -6,51 +6,72 @@ using UnityEngine;
 
 public class PlayerSFX : MonoBehaviour
 {
+    [SerializeField] bool debugOn = false;
     public MaterialID materialID;
     
-   [Header("Footstep Sounds")]
+
+    [Header("Current PlayerSFX")] 
+    [SerializeField] List<AudioClip> currentFootSteps = new List<AudioClip>();
+    [SerializeField] List<AudioClip> currentJumpSounds = new List<AudioClip>();
+    [SerializeField] List<AudioClip> currentLandingSounds = new List<AudioClip>();
+
+    [Header("Footstep Sounds")]
     //public List<AudioClip> defaultFootsteps = new List<AudioClip>();
     public List<PlayerSFXMaterials> footSteps = new List<PlayerSFXMaterials>();
-    public List<AudioClip> currentFootSteps = new List<AudioClip>();
-
+    [SerializeField] int footstepLastOmitValue = 1;
+    
     [Header("Jump Sounds")]
     public List<PlayerSFXMaterials> jumpSounds = new List<PlayerSFXMaterials>();
-    public List<AudioClip> currentJumpSounds = new List<AudioClip>();
+    [SerializeField] int jumpSoundLastOmitValue = 1;
 
     [Header("Landing Sounds")]
     public List<PlayerSFXMaterials> landingSounds = new List<PlayerSFXMaterials>();
-    public List<AudioClip> currentLandingSounds = new List<AudioClip>();
+    [SerializeField] int landingSoundLastOmitValue = 1;
 
     private AudioSource playerSFXEmitter;
+    private AudioClip nextClipToPlay = null;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerSFXEmitter = GetComponent<AudioSource>();
-
-        
+        NewListsForEachPlayerSFX();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown("p"))
         {
-            NewListOfAudioClips(footSteps , currentFootSteps);
-           
+            
         }
-    }
 
+        if (Input.GetKeyDown("o"))
+        {
+           
+        } 
+    }
     public void PlayOneShot(AudioClip _audioClip)
     {
         playerSFXEmitter.PlayOneShot(_audioClip);
     }
-
-    public void SelectClip()
+    private void NewListsForEachPlayerSFX()
     {
+        NewListOfAudioClips(footSteps, currentFootSteps);
+        NewListOfAudioClips(jumpSounds, currentJumpSounds);
+        NewListOfAudioClips(landingSounds, currentLandingSounds);
+
+        if(currentFootSteps.Count == 0 || currentJumpSounds.Count == 0 || currentLandingSounds.Count == 0)
+        {
+            materialID = MaterialID.Default;
+            NewListOfAudioClips(footSteps, currentFootSteps);
+            NewListOfAudioClips(jumpSounds, currentJumpSounds);
+            NewListOfAudioClips(landingSounds, currentLandingSounds);
+
+            if(debugOn)
+            {
+                Debug.Log("One of the current PlayerSFX was empty, so all PlayerSFX are set to Default Material");
+            }
+        }
 
     }
-
     private void NewListOfAudioClips(List<PlayerSFXMaterials> _clipLists , List<AudioClip> _currentAudioClipList)
     {
         _currentAudioClipList.Clear();
@@ -66,4 +87,49 @@ public class PlayerSFX : MonoBehaviour
             }
         }
     }
+    public void FootstepPlayerSFX()
+    {
+        SelectAndPlayNextClip(currentFootSteps , footstepLastOmitValue);
+    }
+    public void JumpSoundsPlayerSFX()
+    {
+        SelectAndPlayNextClip(currentJumpSounds, jumpSoundLastOmitValue);
+    }
+    public void LandingSoundsPlayerSFX()
+    {
+        SelectAndPlayNextClip(currentLandingSounds, landingSoundLastOmitValue);
+    }
+    public void SelectAndPlayNextClip(List<AudioClip> _audioClipList , int _lastOmitValue)
+    {
+        if(_audioClipList.Count == 0) 
+        { 
+            if(debugOn)
+            {
+                Debug.Log("PLAYERSFX - _audioClipList is empty - so RETURNED");
+            }
+            return; 
+        }
+
+        int i = Random.Range(_lastOmitValue, _audioClipList.Count);
+
+        nextClipToPlay = _audioClipList[i];
+        _audioClipList.RemoveAt(i);
+        _audioClipList.Insert(0, nextClipToPlay);
+
+
+        if(nextClipToPlay == null)
+        {
+            if(debugOn)
+            {
+                Debug.Log("PLAYER SFX - next clip to play == null - so has just been RETURNED");
+            }
+
+            return;
+        }
+        playerSFXEmitter.PlayOneShot(nextClipToPlay);
+        nextClipToPlay = null;
+
+
+    }
+   
 }

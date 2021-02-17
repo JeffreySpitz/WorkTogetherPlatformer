@@ -1290,7 +1290,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f580cab64f5944f989880d76b58690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugOn: 1
   materialID: 0
+  currentFootSteps: []
+  currentJumpSounds: []
+  currentLandingSounds: []
   footSteps:
   - customMaterialD: 1
     audioClips:
@@ -1306,7 +1310,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 7ec2600332cf7544fa5ebc07e664f0f4, type: 3}
     - {fileID: 8300000, guid: 519d86351b7a4614e92d58072156571a, type: 3}
     - {fileID: 8300000, guid: e87f0c623488ffe4895254993012ea65, type: 3}
-  currentFootSteps: []
+  footstepLastOmitValue: 1
   jumpSounds:
   - customMaterialD: 1
     audioClips:
@@ -1318,14 +1322,19 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 787d034a35349844fa542f97d85a3b5c, type: 3}
     - {fileID: 8300000, guid: 79249f2965dc3c943bd8153d113d4cdb, type: 3}
     - {fileID: 8300000, guid: 48f5b10634fcc8e4686d03ca37d6cc2c, type: 3}
-  currentJumpSounds: []
-  landingSounds: [{customMaterialD: 1, audioClips: [{fileID: 8300000, guid: 3a266f68a4f91e147b440de4590e8d67,
-          type: 3}, {fileID: 8300000, guid: 38efa8994ff170841b1ae2c1331c5698, type: 3},
-        {fileID: 8300000, guid: 9ef4cd62614960146af16661ee88a852, type: 3}]}, {customMaterialD: 0,
-      audioClips: [{fileID: 8300000, guid: 8982cedee9b6807428ee9b77c4d6f231, type: 3},
-        {fileID: 8300000, guid: ecf89418e7831d84987ec8cae936d47c, type: 3}, {fileID: 8300000,
-          guid: 2baa04d465a2ffa459d78e0ce87072b2, type: 3}]}]
-  currentLandingSounds: []
+  jumpSoundLastOmitValue: 1
+  landingSounds:
+  - customMaterialD: 1
+    audioClips:
+    - {fileID: 8300000, guid: 3a266f68a4f91e147b440de4590e8d67, type: 3}
+    - {fileID: 8300000, guid: 38efa8994ff170841b1ae2c1331c5698, type: 3}
+    - {fileID: 8300000, guid: 9ef4cd62614960146af16661ee88a852, type: 3}
+  - customMaterialD: 0
+    audioClips:
+    - {fileID: 8300000, guid: 8982cedee9b6807428ee9b77c4d6f231, type: 3}
+    - {fileID: 8300000, guid: ecf89418e7831d84987ec8cae936d47c, type: 3}
+    - {fileID: 8300000, guid: 2baa04d465a2ffa459d78e0ce87072b2, type: 3}
+  landingSoundLastOmitValue: 1
 --- !u!82 &819897904
 AudioSource:
   m_ObjectHideFlags: 0
