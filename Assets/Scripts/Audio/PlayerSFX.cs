@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(AudioSource))]
 
@@ -35,23 +36,45 @@ public class PlayerSFX : MonoBehaviour
     {
         playerSFXEmitter = GetComponent<AudioSource>();
         NewListsForEachPlayerSFX();
+        
     }
     void Update()
     {
         if(Input.GetKeyDown("p"))
         {
-            
+            FootstepPlayerSFX();
         }
 
         if (Input.GetKeyDown("o"))
         {
-           
-        } 
+            JumpSoundsPlayerSFX();
+        }
+        if (Input.GetKeyDown("i"))
+        {
+            LandingSoundsPlayerSFX();
+        }
+
+
     }
-    public void PlayOneShot(AudioClip _audioClip)
+
+
+    #region public voids for calling playerSFX
+    // public voids for calling playerSFX
+    public void FootstepPlayerSFX()
     {
-        playerSFXEmitter.PlayOneShot(_audioClip);
+        SelectAndPlayNextClip(currentFootSteps, footstepLastOmitValue);
     }
+    public void JumpSoundsPlayerSFX()
+    {
+        SelectAndPlayNextClip(currentJumpSounds, jumpSoundLastOmitValue);
+    }
+    public void LandingSoundsPlayerSFX()
+    {
+        SelectAndPlayNextClip(currentLandingSounds, landingSoundLastOmitValue);
+    }
+    #endregion
+
+
     private void NewListsForEachPlayerSFX()
     {
         NewListOfAudioClips(footSteps, currentFootSteps);
@@ -87,18 +110,6 @@ public class PlayerSFX : MonoBehaviour
             }
         }
     }
-    public void FootstepPlayerSFX()
-    {
-        SelectAndPlayNextClip(currentFootSteps , footstepLastOmitValue);
-    }
-    public void JumpSoundsPlayerSFX()
-    {
-        SelectAndPlayNextClip(currentJumpSounds, jumpSoundLastOmitValue);
-    }
-    public void LandingSoundsPlayerSFX()
-    {
-        SelectAndPlayNextClip(currentLandingSounds, landingSoundLastOmitValue);
-    }
     public void SelectAndPlayNextClip(List<AudioClip> _audioClipList , int _lastOmitValue)
     {
         if(_audioClipList.Count == 0) 
@@ -108,6 +119,12 @@ public class PlayerSFX : MonoBehaviour
                 Debug.Log("PLAYERSFX - _audioClipList is empty - so RETURNED");
             }
             return; 
+        }
+
+        if(_audioClipList.Count == 1)
+        {
+            playerSFXEmitter.PlayOneShot(_audioClipList[0]);
+            return;
         }
 
         int i = Random.Range(_lastOmitValue, _audioClipList.Count);
