@@ -127,16 +127,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   run_speed: 500
+  climb_speed: 2
+  climbing_smooth_speed: 0.125
   jump_force: 130
   ground_layer:
     serializedVersion: 2
     m_Bits: 512
+  ladder_layer:
+    serializedVersion: 2
+    m_Bits: 1024
   ground_check_transform: {fileID: 8823639495782545917}
   ground_check_radius: 0.1
   jump_delay: 0.5
   no_friction: {fileID: 13400000, guid: b9a1bb6e58f8abc4297c3a654af39a0e, type: 2}
   full_friction: {fileID: 13400000, guid: 223a1520d97466842a3c440a3efae2d8, type: 2}
   collider: {fileID: 8823639495302129864}
+  extra_gravity: {fileID: 8823639495302129870}
 --- !u!75 &8823639495302129870
 ConstantForce:
   m_ObjectHideFlags: 0
