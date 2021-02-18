@@ -6,6 +6,11 @@ public class CameraFollow : MonoBehaviour
     public float smooth_speed = 0.125f;
     public Vector3 offset;
 
+    private void Start()
+    {
+        transform.position = target.position + offset;
+    }
+
     private void FixedUpdate()
     {
         // Late update so target have already conducted its movement
