@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 8823639495302129871}
   - component: {fileID: 8823639495302129870}
   m_Layer: 8
-  m_Name: Player1
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,9 +130,13 @@ MonoBehaviour:
   jump_force: 130
   ground_layer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 512
   ground_check_transform: {fileID: 8823639495782545917}
   ground_check_radius: 0.1
+  jump_delay: 0.5
+  no_friction: {fileID: 13400000, guid: b9a1bb6e58f8abc4297c3a654af39a0e, type: 2}
+  full_friction: {fileID: 13400000, guid: 223a1520d97466842a3c440a3efae2d8, type: 2}
+  collider: {fileID: 8823639495302129864}
 --- !u!75 &8823639495302129870
 ConstantForce:
   m_ObjectHideFlags: 0

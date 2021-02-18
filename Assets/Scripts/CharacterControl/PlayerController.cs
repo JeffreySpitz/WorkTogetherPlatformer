@@ -34,10 +34,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        var move_x = controls.Player.Movement.ReadValue<float>();
+        var move_2d = controls.Player.Move.ReadValue<Vector2>();
         if (player != null)
         {
-            player.Move(move_x);
+            player.Move(move_2d);
         }
     }
 }
