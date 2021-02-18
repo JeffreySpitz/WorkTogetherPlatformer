@@ -10,12 +10,14 @@ public class Player : MonoBehaviour
     public LayerMask ground_layer;
     public Transform ground_check_transform;
     public float ground_check_radius = 0.1f;
+    public float jump_delay = 0.5f;
 
     private Rigidbody rb;
     private bool is_grounded = true;
     private bool can_jump = true;
     private bool is_jumping = false;
     private float max_horizonal_velocity = 10f;
+    private float time_till_next_jump = 0.0f;
 
     private PlayerSFX playerSFX;
 
@@ -59,10 +61,11 @@ public class Player : MonoBehaviour
         else
             is_grounded = false;
 
-        if (rb.velocity.y < 0.0f && is_jumping)
+        if (rb.velocity.y <= 0.0f && Time.time > time_till_next_jump)
         {
-            Debug.Log("not jumping anymore");
+            Debug.Log("jump recharged");
             is_jumping = false;
+            time_till_next_jump = Time.time + jump_delay;
             
         }
 
