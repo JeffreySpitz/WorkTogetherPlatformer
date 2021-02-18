@@ -53,7 +53,6 @@ public class Player : MonoBehaviour
     {
         float move_x = move_2d.x;
         float move_y = move_2d.y;
-        Debug.Log(move_y);
         if (rb.velocity.x > 0 && facing_direction == -1 && move_x > 0)
         {
             Flip();
@@ -139,7 +138,7 @@ public class Player : MonoBehaviour
 
     private void CheckHorizontal()
     {
-        Debug.DrawRay(ground_check_transform.position, transform.TransformDirection(Vector3.forward) * 0.6f, Color.green, 1.0f);
+        // Debug.DrawRay(ground_check_transform.position, transform.TransformDirection(Vector3.forward) * 0.6f, Color.green, 1.0f);
         if (Physics.Raycast(ground_check_transform.position, transform.TransformDirection(Vector3.forward), 0.6f, ladder_layer))
         {
             can_climb = true;
@@ -156,9 +155,6 @@ public class Player : MonoBehaviour
         {
             is_climbing = false;
         }
-
-        Debug.Log(is_climbing);
-
     }
 
     private void FixedUpdate()
