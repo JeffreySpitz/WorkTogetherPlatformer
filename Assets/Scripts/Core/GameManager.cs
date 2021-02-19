@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        player_controller.player = player1;
+        player_controller.SwitchPlayer(player1);
         is_controlling_player_1 = true;
     }
 
@@ -38,12 +38,12 @@ public class GameManager : MonoBehaviour
         if (is_controlling_player_1)
         {
             is_controlling_player_1 = false;
-            player_controller.player = player2;
+            player_controller.SwitchPlayer(player2);
         }
         else
         {
             is_controlling_player_1 = true;
-            player_controller.player = player1;
+            player_controller.SwitchPlayer(player1);
         }
     }
 

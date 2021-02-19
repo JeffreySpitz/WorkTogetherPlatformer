@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public PhysicMaterial full_friction;
     public CapsuleCollider collider;
     public ConstantForce extra_gravity;
+    public GameObject point_light;
 
     private Rigidbody rb;
     private bool is_grounded = true;

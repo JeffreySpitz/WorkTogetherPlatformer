@@ -7,6 +7,16 @@ public class PlayerController : MonoBehaviour
     public InputMaster controls;
     public Player player = null;
 
+    public void SwitchPlayer(Player new_player)
+    {
+        if(player != null)
+        {
+            player.point_light.SetActive(false);
+        }
+        player = new_player;
+        player.point_light.SetActive(true);
+    }
+
     private void Awake()
     {
         controls = new InputMaster();
