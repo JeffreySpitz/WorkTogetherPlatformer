@@ -18,12 +18,12 @@ public class ScaleTween : MonoBehaviour
 
     public void ScaleUp()
     {
-        LeanTween.scale(gameObject, new Vector2(scale_x * scale_multiplier, scale_y * scale_multiplier), scale_time);
+        LeanTween.scale(gameObject, new Vector2(scale_x * scale_multiplier, scale_y * scale_multiplier), scale_time).setIgnoreTimeScale(true);
     }
 
     public void ScaleDown()
     {
-        LeanTween.scale(gameObject, new Vector2(scale_x, scale_y), scale_time);
+        LeanTween.scale(gameObject, new Vector2(scale_x, scale_y), scale_time).setIgnoreTimeScale(true);
     }
 
 }
