@@ -138,7 +138,7 @@ public class Player : MonoBehaviour
 
     private void CheckHorizontal()
     {
-        // Debug.DrawRay(ground_check_transform.position, transform.TransformDirection(Vector3.forward) * 0.6f, Color.green, 1.0f);
+        Debug.DrawRay(ground_check_transform.position, transform.TransformDirection(Vector3.forward) * 0.6f, Color.green, 1.0f);
         if (Physics.Raycast(ground_check_transform.position, transform.TransformDirection(Vector3.forward), 0.6f, ladder_layer))
         {
             can_climb = true;
