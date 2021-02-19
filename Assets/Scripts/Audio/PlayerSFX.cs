@@ -81,7 +81,7 @@ public class PlayerSFX : MonoBehaviour
     }
     public void LandingSoundsPlayerSFX()
     {
-        SelectAndPlayNextClip(currentLandingSounds, landingSoundLastOmitValue, landingSoundVolume, jumpSoundPitchMin, jumpSoundPitchMax);
+        SelectAndPlayNextClip(currentLandingSounds, landingSoundLastOmitValue, landingSoundVolume, landingSoundPitchMin, landingSoundPitchMax);
     }
     #endregion
 

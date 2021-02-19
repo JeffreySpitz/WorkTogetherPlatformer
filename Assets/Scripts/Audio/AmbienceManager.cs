@@ -16,10 +16,10 @@ public class AmbienceManager : MonoBehaviour
     private AudioSource ambienceEmitter2;
     private AudioSceneSetup audioSceneSetup;
 
-    [SerializeField] float defaultAmbienceAudioSourceVolume = 1.0f;
+    [SerializeField] float defaultAmbVolume = 1.0f;
 
-    public AudioMixerGroup defaultAmbienceAudioMixerGroup;
-    public AudioMixerGroup altAmbienceAudioMixerGroup;
+    public AudioMixerGroup defaultAmbMixer;
+    public AudioMixerGroup altAmbMixer;
 
     public AudioClip currentlyPlayingAmbience;
 
@@ -46,12 +46,12 @@ public class AmbienceManager : MonoBehaviour
         {
             _audioSource.loop = true;
             _audioSource.playOnAwake = false;
-            _audioSource.volume = defaultAmbienceAudioSourceVolume;
+            _audioSource.volume = defaultAmbVolume;
            
         }
 
-        ambienceEmitter1.outputAudioMixerGroup = defaultAmbienceAudioMixerGroup;
-        ambienceEmitter2.outputAudioMixerGroup = altAmbienceAudioMixerGroup;
+        ambienceEmitter1.outputAudioMixerGroup = defaultAmbMixer;
+        ambienceEmitter2.outputAudioMixerGroup = altAmbMixer;
 
         audioSceneSetup = FindObjectOfType<AudioSceneSetup>();
 

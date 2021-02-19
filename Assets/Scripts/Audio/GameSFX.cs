@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameSFX : MonoBehaviour
 {
-    [SerializeField] bool debugOn;
+    [SerializeField] bool debugOn = false;
 
     [Header("Game SFX Audio Clips")]
     public AudioClip levelStartSound;
