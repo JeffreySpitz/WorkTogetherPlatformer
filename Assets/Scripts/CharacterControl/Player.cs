@@ -33,8 +33,6 @@ public class Player : MonoBehaviour
 
     private PlayerSFX playerSFX;
 
-    private PlayerSFX playerSFX;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
