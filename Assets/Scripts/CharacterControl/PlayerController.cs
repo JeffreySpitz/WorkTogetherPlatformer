@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         controls = new InputMaster();
         controls.Player.Jump.performed += _ => Jump();
+        controls.Player.Interact.performed += _ => Interact();
     }
 
     void Jump()
@@ -28,6 +29,14 @@ public class PlayerController : MonoBehaviour
         if (player != null)
         {
             player.Jump();
+        }
+    }
+
+    void Interact()
+    {
+        if (player != null)
+        {
+            player.Interact();
         }
     }
 

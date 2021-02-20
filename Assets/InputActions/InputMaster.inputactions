@@ -71,19 +71,8 @@
                 },
                 {
                     "name": "",
-                    "id": "0eb99313-71fe-48d1-b8d8-a7589cab70c9",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard And Mouse",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "7e849847-0cba-4ea5-a6e2-121ebd546352",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard And Mouse",
