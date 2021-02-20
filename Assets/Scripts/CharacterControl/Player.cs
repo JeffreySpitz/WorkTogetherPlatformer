@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
 
     private PlayerSFX playerSFX;
 
+    private PlayerSFX playerSFX;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -126,6 +128,7 @@ public class Player : MonoBehaviour
         if (rb.velocity.y <= 0.0f && Time.time > time_till_next_jump)
         {
             is_jumping = false;
+
             time_till_next_jump = Time.time + jump_delay;
             
         }
