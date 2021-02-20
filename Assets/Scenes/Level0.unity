@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 7110091128666450015}
   smooth_speed: 0.125
-  offset: {x: 0, y: 0, z: -3}
+  offset: {x: 0, y: 0, z: -4}
 --- !u!81 &453770268
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1627,7 +1627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 865672117}
   smooth_speed: 0.125
-  offset: {x: 0, y: 0, z: -3}
+  offset: {x: 0, y: 0, z: -4}
 --- !u!1 &730182803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,7 +2016,7 @@ PrefabInstance:
     - target: {fileID: 4944221961947008231, guid: 4edaf8a768269fa41bfb52e527f9bf20,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4944221961947008231, guid: 4edaf8a768269fa41bfb52e527f9bf20,
         type: 3}
@@ -4236,11 +4236,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerPrisoner1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7246138972334847716, guid: 4edaf8a768269fa41bfb52e527f9bf20,
-        type: 3}
-      propertyPath: run_speed
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4edaf8a768269fa41bfb52e527f9bf20, type: 3}

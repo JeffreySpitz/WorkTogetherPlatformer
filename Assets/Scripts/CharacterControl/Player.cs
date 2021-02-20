@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public PhysicMaterial full_friction;
     public CapsuleCollider collider;
     public ConstantForce extra_gravity;
-    public GameObject point_light;
+    public Light point_light;
 
     private Rigidbody rb;
     private Animator player_animator;
@@ -44,9 +44,8 @@ public class Player : MonoBehaviour
 
     public void Interact()
     {
-        if (!is_climbing && rb.velocity.x < 0.01 && rb.velocity.y < 0.01)
+        if (!is_climbing && Mathf.Abs(rb.velocity.x) < 0.01 && Mathf.Abs(rb.velocity.y) < 0.01)
         {
-            Debug.Log("we are interacting");
             is_interacting = true;
             player_animator.SetTrigger("pull_lever");
             StartCoroutine(InteractWait());

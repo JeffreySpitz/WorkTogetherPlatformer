@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9119505abe494524d8bbaa93c4486b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  run_speed: 500
+  run_speed: 100
   max_horizonal_velocity: 2
   climb_speed: 2
   climbing_smooth_speed: 0.125
@@ -164,7 +164,7 @@ MonoBehaviour:
   full_friction: {fileID: 13400000, guid: 223a1520d97466842a3c440a3efae2d8, type: 2}
   collider: {fileID: 778552009734898275}
   extra_gravity: {fileID: 8384799344032544550}
-  point_light: {fileID: 125345697461137513}
+  point_light: {fileID: 1189291640401544243}
 --- !u!1001 &4834577713064061708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,12 +195,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4d883ddc7c13a9442b837c2b0ff8f8ca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.53
+      value: 35.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d883ddc7c13a9442b837c2b0ff8f8ca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.713
+      value: 9.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d883ddc7c13a9442b837c2b0ff8f8ca,
         type: 3}
@@ -245,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4d883ddc7c13a9442b837c2b0ff8f8ca,
         type: 3}
       propertyPath: m_Name
-      value: PlayerPrisoner1
+      value: PlayerPrisoner
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 4d883ddc7c13a9442b837c2b0ff8f8ca,
         type: 3}
