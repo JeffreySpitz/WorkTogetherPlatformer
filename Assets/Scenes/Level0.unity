@@ -2135,7 +2135,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneDefaultAmbience
       value: 
-      objectReference: {fileID: 8300000, guid: 6b226df33861de94eb96fc8f09bdd712, type: 3}
+      objectReference: {fileID: 8300000, guid: 5229a44b2e06b7f44ab2ab6f1a3a8379, type: 3}
     - target: {fileID: 1974065937524885006, guid: 5ed962acf89d3cc479e908ff559937c6,
         type: 3}
       propertyPath: m_Name
@@ -3617,6 +3617,52 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 667481896, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: altAmbMixer
+      value: 
+      objectReference: {fileID: 3336095137953409003, guid: 87d2bc2f51f228d49bf69ffa52940e4d,
+        type: 2}
+    - target: {fileID: 667481896, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: defaultAmbMixer
+      value: 
+      objectReference: {fileID: -6970587288311837355, guid: 87d2bc2f51f228d49bf69ffa52940e4d,
+        type: 2}
+    - target: {fileID: 819897903, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: materialID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 819897903, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: footstepVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 819897903, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: climbingSoundsVolume
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 819897903, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: footSteps.Array.data[0].customMaterialD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 819897903, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: footSteps.Array.data[1].customMaterialD
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 819897903, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: jumpSounds.Array.data[1].customMaterialD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 819897903, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: climbingSounds.Array.data[0].customMaterialD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 978999581, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: PressButtonSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: e8fb0dc4f743cb545951f9ce84cf8488, type: 3}
+    - target: {fileID: 1968208930, guid: 74cfdec40f2fdb0478d35024bb6cfa28, type: 3}
+      propertyPath: muteAmb
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 674412815522814733, guid: 74cfdec40f2fdb0478d35024bb6cfa28,
         type: 3}
       propertyPath: m_Name
