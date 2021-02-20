@@ -31,10 +31,10 @@ public class PlayerSFX : MonoBehaviour
     [SerializeField] float jumpSoundPitchMin = 0.9f;
     [SerializeField] float jumpSoundPitchMax = 1.1f;
 
-
     [Header("Landing Sounds")]
     public List<PlayerSFXMaterials> landingSounds = new List<PlayerSFXMaterials>();
     [SerializeField] int landingSoundLastOmitValue = 1;
+
     [SerializeField] float landingSoundVolume = 0.7f;
     [SerializeField] float landingSoundPitchMin = 0.9f;
     [SerializeField] float landingSoundPitchMax = 1.1f;
@@ -73,6 +73,7 @@ public class PlayerSFX : MonoBehaviour
     // public voids for calling playerSFX
     public void FootstepPlayerSFX()
     {
+
         SelectAndPlayNextClip(currentFootSteps, footstepLastOmitValue, footstepVolume, footstepPitchMin, footstepPitchMax);
     }
     public void JumpSoundsPlayerSFX()
@@ -121,6 +122,7 @@ public class PlayerSFX : MonoBehaviour
             }
         }
     }
+
     public void SelectAndPlayNextClip(List<AudioClip> _audioClipList , int _lastOmitValue , float _volume , float _pitchMin , float _pitchMax)
     {
         if(_audioClipList.Count == 0) 
@@ -134,6 +136,7 @@ public class PlayerSFX : MonoBehaviour
 
         if(_audioClipList.Count == 1)
         {
+
             playerSFXEmitter.PlayOneShot(_audioClipList[0] , _volume);
             return;
         }
@@ -143,6 +146,7 @@ public class PlayerSFX : MonoBehaviour
         nextClipToPlay = _audioClipList[i];
         _audioClipList.RemoveAt(i);
         _audioClipList.Insert(0, nextClipToPlay);
+
 
         playerSFXEmitter.pitch = Random.Range(_pitchMin, _pitchMax);
         if(nextClipToPlay == null)
@@ -154,6 +158,7 @@ public class PlayerSFX : MonoBehaviour
 
             return;
         }
+
         playerSFXEmitter.PlayOneShot(nextClipToPlay , _volume);
         nextClipToPlay = null;
 
