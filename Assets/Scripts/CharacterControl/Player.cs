@@ -195,5 +195,17 @@ public class Player : MonoBehaviour
         UpdateAnimator();
     }
 
+    //AUDIO
+    public void FSTrigger()
+    {
+        playerSFX.FootstepPlayerSFX();
+    }
+
+    public void ClimbTrigger()
+    {
+        playerSFX.ClimbingSoundsPlayerSFX();
+        
+    }
+
 
 }

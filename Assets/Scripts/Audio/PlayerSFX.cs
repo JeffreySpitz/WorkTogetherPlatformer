@@ -15,6 +15,7 @@ public class PlayerSFX : MonoBehaviour
     [SerializeField] List<AudioClip> currentFootSteps = new List<AudioClip>();
     [SerializeField] List<AudioClip> currentJumpSounds = new List<AudioClip>();
     [SerializeField] List<AudioClip> currentLandingSounds = new List<AudioClip>();
+    [SerializeField] List<AudioClip> currentClimbingSounds = new List<AudioClip>();
 
     [Header("Footstep Sounds")]
     //public List<AudioClip> defaultFootsteps = new List<AudioClip>();
@@ -23,6 +24,14 @@ public class PlayerSFX : MonoBehaviour
     [SerializeField] float footstepVolume = 0.7f;
     [SerializeField] float footstepPitchMin = 0.9f;
     [SerializeField] float footstepPitchMax = 1.1f;
+
+    [Header("Climbing Sounds")]
+    //public List<AudioClip> defaultFootsteps = new List<AudioClip>();
+    public List<PlayerSFXMaterials> climbingSounds = new List<PlayerSFXMaterials>();
+    [SerializeField] int climbingSoundsLastOmitValue = 1;
+    [SerializeField] float climbingSoundsVolume = 0.7f;
+    [SerializeField] float climbingSoundsPitchMin = 0.9f;
+    [SerializeField] float climbingSoundsPitchMax = 1.1f;
 
     [Header("Jump Sounds")]
     public List<PlayerSFXMaterials> jumpSounds = new List<PlayerSFXMaterials>();
@@ -84,6 +93,11 @@ public class PlayerSFX : MonoBehaviour
     {
         SelectAndPlayNextClip(currentLandingSounds, landingSoundLastOmitValue, landingSoundVolume, landingSoundPitchMin, landingSoundPitchMax);
     }
+
+    public void ClimbingSoundsPlayerSFX()
+    {
+        SelectAndPlayNextClip(currentClimbingSounds, climbingSoundsLastOmitValue, climbingSoundsVolume, climbingSoundsPitchMin, climbingSoundsPitchMax);
+    }
     #endregion
 
 
@@ -92,15 +106,17 @@ public class PlayerSFX : MonoBehaviour
         NewListOfAudioClips(footSteps, currentFootSteps);
         NewListOfAudioClips(jumpSounds, currentJumpSounds);
         NewListOfAudioClips(landingSounds, currentLandingSounds);
+        NewListOfAudioClips(climbingSounds, currentClimbingSounds);
 
-        if(currentFootSteps.Count == 0 || currentJumpSounds.Count == 0 || currentLandingSounds.Count == 0)
+        if (currentFootSteps.Count == 0 || currentJumpSounds.Count == 0 || currentLandingSounds.Count == 0)
         {
             materialID = MaterialID.Default;
             NewListOfAudioClips(footSteps, currentFootSteps);
             NewListOfAudioClips(jumpSounds, currentJumpSounds);
             NewListOfAudioClips(landingSounds, currentLandingSounds);
+            NewListOfAudioClips(climbingSounds, currentClimbingSounds);
 
-            if(debugOn)
+            if (debugOn)
             {
                 Debug.Log("One of the current PlayerSFX was empty, so all PlayerSFX are set to Default Material");
             }
