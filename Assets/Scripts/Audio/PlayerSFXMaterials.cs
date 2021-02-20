@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerSFXMaterials
 {
-    public MaterialID materialID;
+    public MaterialID customMaterialD;
     public List<AudioClip> audioClips = new List<AudioClip>();
 }
 

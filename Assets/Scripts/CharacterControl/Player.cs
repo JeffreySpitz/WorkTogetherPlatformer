@@ -17,9 +17,12 @@ public class Player : MonoBehaviour
     private bool is_jumping = false;
     private float max_horizonal_velocity = 10f;
 
+    private PlayerSFX playerSFX;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerSFX = FindObjectOfType<PlayerSFX>();
     }
 
     public void Jump()
@@ -30,6 +33,7 @@ public class Player : MonoBehaviour
             can_jump = false;
             is_jumping = true;
             rb.AddForce(Vector3.up * jump_force, ForceMode.Impulse);
+            playerSFX.JumpSoundsPlayerSFX();
         }
     }
 
@@ -59,6 +63,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("not jumping anymore");
             is_jumping = false;
+            
         }
 
         if (is_grounded && !is_jumping && !can_jump)
