@@ -5,16 +5,16 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -623603649343465320
-    second: T-Pose
+    second: Walk
   - first:
-      74: -1803976989739477343
-    second: Walk Cycle
+      74: 3541297829767021732
+    second: Climbing
   - first:
       74: -8237482108326870749
     second: Lever
   - first:
-      74: -5029904043381687400
-    second: Ladder
+      74: -3100369314251171874
+    second: Idle
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -44,19 +44,19 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: T-Pose
+      name: Walk
       takeName: Scene
       internalID: 0
-      firstFrame: 0
-      lastFrame: 0
+      firstFrame: 20
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -73,11 +73,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk Cycle
+      name: Climbing
       takeName: Scene
       internalID: 0
-      firstFrame: 20
-      lastFrame: 60
+      firstFrame: 80
+      lastFrame: 95
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -131,11 +131,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ladder
+      name: Idle
       takeName: Scene
       internalID: 0
-      firstFrame: 80
-      lastFrame: 95
+      firstFrame: 180
+      lastFrame: 240
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
