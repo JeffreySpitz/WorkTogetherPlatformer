@@ -11,16 +11,17 @@ public class PlayerController : MonoBehaviour
     {
         if(player != null)
         {
-            player.point_light.SetActive(false);
+            player.point_light.intensity = 0;
         }
         player = new_player;
-        player.point_light.SetActive(true);
+        player.point_light.intensity = 1;
     }
 
     private void Awake()
     {
         controls = new InputMaster();
         controls.Player.Jump.performed += _ => Jump();
+        controls.Player.Interact.performed += _ => Interact();
     }
 
     void Jump()
@@ -28,6 +29,14 @@ public class PlayerController : MonoBehaviour
         if (player != null)
         {
             player.Jump();
+        }
+    }
+
+    void Interact()
+    {
+        if (player != null)
+        {
+            player.Interact();
         }
     }
 
