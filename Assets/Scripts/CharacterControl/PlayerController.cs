@@ -7,6 +7,16 @@ public class PlayerController : MonoBehaviour
     public InputMaster controls;
     public Player player = null;
 
+    public void SwitchPlayer(Player new_player)
+    {
+        if(player != null)
+        {
+            player.point_light.SetActive(false);
+        }
+        player = new_player;
+        player.point_light.SetActive(true);
+    }
+
     private void Awake()
     {
         controls = new InputMaster();
@@ -34,10 +44,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        var move_x = controls.Player.Movement.ReadValue<float>();
+        var move_2d = controls.Player.Move.ReadValue<Vector2>();
         if (player != null)
         {
-            player.Move(move_x);
+            player.Move(move_2d);
         }
     }
 }

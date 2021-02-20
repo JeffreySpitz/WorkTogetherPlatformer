@@ -20,14 +20,25 @@ public class PlayerSFX : MonoBehaviour
     //public List<AudioClip> defaultFootsteps = new List<AudioClip>();
     public List<PlayerSFXMaterials> footSteps = new List<PlayerSFXMaterials>();
     [SerializeField] int footstepLastOmitValue = 1;
-    
+    [SerializeField] float footstepVolume = 0.7f;
+    [SerializeField] float footstepPitchMin = 0.9f;
+    [SerializeField] float footstepPitchMax = 1.1f;
+
     [Header("Jump Sounds")]
     public List<PlayerSFXMaterials> jumpSounds = new List<PlayerSFXMaterials>();
     [SerializeField] int jumpSoundLastOmitValue = 1;
+    [SerializeField] float jumpSoundVolume = 0.7f;
+    [SerializeField] float jumpSoundPitchMin = 0.9f;
+    [SerializeField] float jumpSoundPitchMax = 1.1f;
 
     [Header("Landing Sounds")]
     public List<PlayerSFXMaterials> landingSounds = new List<PlayerSFXMaterials>();
     [SerializeField] int landingSoundLastOmitValue = 1;
+
+    [SerializeField] float landingSoundVolume = 0.7f;
+    [SerializeField] float landingSoundPitchMin = 0.9f;
+    [SerializeField] float landingSoundPitchMax = 1.1f;
+
 
     private AudioSource playerSFXEmitter;
     private AudioClip nextClipToPlay = null;
@@ -62,15 +73,16 @@ public class PlayerSFX : MonoBehaviour
     // public voids for calling playerSFX
     public void FootstepPlayerSFX()
     {
-        SelectAndPlayNextClip(currentFootSteps, footstepLastOmitValue);
+
+        SelectAndPlayNextClip(currentFootSteps, footstepLastOmitValue, footstepVolume, footstepPitchMin, footstepPitchMax);
     }
     public void JumpSoundsPlayerSFX()
     {
-        SelectAndPlayNextClip(currentJumpSounds, jumpSoundLastOmitValue);
+        SelectAndPlayNextClip(currentJumpSounds, jumpSoundLastOmitValue, jumpSoundVolume, jumpSoundPitchMin, jumpSoundPitchMax);
     }
     public void LandingSoundsPlayerSFX()
     {
-        SelectAndPlayNextClip(currentLandingSounds, landingSoundLastOmitValue);
+        SelectAndPlayNextClip(currentLandingSounds, landingSoundLastOmitValue, landingSoundVolume, jumpSoundPitchMin, jumpSoundPitchMax);
     }
     #endregion
 
@@ -110,7 +122,8 @@ public class PlayerSFX : MonoBehaviour
             }
         }
     }
-    public void SelectAndPlayNextClip(List<AudioClip> _audioClipList , int _lastOmitValue)
+
+    public void SelectAndPlayNextClip(List<AudioClip> _audioClipList , int _lastOmitValue , float _volume , float _pitchMin , float _pitchMax)
     {
         if(_audioClipList.Count == 0) 
         { 
@@ -123,7 +136,8 @@ public class PlayerSFX : MonoBehaviour
 
         if(_audioClipList.Count == 1)
         {
-            playerSFXEmitter.PlayOneShot(_audioClipList[0]);
+
+            playerSFXEmitter.PlayOneShot(_audioClipList[0] , _volume);
             return;
         }
 
@@ -134,6 +148,7 @@ public class PlayerSFX : MonoBehaviour
         _audioClipList.Insert(0, nextClipToPlay);
 
 
+        playerSFXEmitter.pitch = Random.Range(_pitchMin, _pitchMax);
         if(nextClipToPlay == null)
         {
             if(debugOn)
@@ -143,7 +158,8 @@ public class PlayerSFX : MonoBehaviour
 
             return;
         }
-        playerSFXEmitter.PlayOneShot(nextClipToPlay);
+
+        playerSFXEmitter.PlayOneShot(nextClipToPlay , _volume);
         nextClipToPlay = null;
 
 

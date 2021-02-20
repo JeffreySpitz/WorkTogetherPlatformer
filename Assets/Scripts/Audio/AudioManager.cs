@@ -35,11 +35,10 @@ public class AudioManager : MonoBehaviour
      
     void Update()
     {
-
-        if(Input.GetKeyDown("m"))
-        {
-            LevelEnd();
-        }
+        //if(Input.GetKeyDown("m"))
+        //{
+        //    LevelEnd();
+        //}
         if(muteMusic == true)
         {
             musicManager.GetComponent<AudioSource>().mute = true;
