@@ -126,19 +126,24 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 657760eec48ef2b468ec77ab9dab2c01, type: 3}
     - {fileID: 8300000, guid: 3df61da08b6278f47be85c9d454e4735, type: 3}
     - {fileID: 8300000, guid: 0e883673c82a5bb4386bd8a0aef2c9bf, type: 3}
-  - customMaterialD: 2
+  - customMaterialD: 1
     audioClips:
-    - {fileID: 8300000, guid: d8d54904ff1d14849bc7e4dc642523d0, type: 3}
-    - {fileID: 8300000, guid: 33056e3f572225741a305c76224969ee, type: 3}
-    - {fileID: 8300000, guid: 7ec2600332cf7544fa5ebc07e664f0f4, type: 3}
-    - {fileID: 8300000, guid: 519d86351b7a4614e92d58072156571a, type: 3}
-    - {fileID: 8300000, guid: e87f0c623488ffe4895254993012ea65, type: 3}
+    - {fileID: 8300000, guid: 05d38e266e0d472438e352b69d5ce679, type: 3}
+    - {fileID: 8300000, guid: 92826dbd6ddcf2448829188f02cacd78, type: 3}
+    - {fileID: 8300000, guid: cc51134a51c85514ea0d9db359cf5c32, type: 3}
+    - {fileID: 8300000, guid: f514ef7fac8e7e7488fc6960e55908bd, type: 3}
+    - {fileID: 8300000, guid: 05a1adea66ede2b49a257055bfb2f8f5, type: 3}
   footstepLastOmitValue: 1
   footstepVolume: 0.5
   footstepPitchMin: 0.9
   footstepPitchMax: 1.1
   climbingSounds:
   - customMaterialD: 0
+    audioClips:
+    - {fileID: 8300000, guid: 99153efa1fad28a47bcd9aacc5a31771, type: 3}
+    - {fileID: 8300000, guid: 03c21d504fa0d4740afbcc2617a22966, type: 3}
+    - {fileID: 8300000, guid: 6d4950af76adf114884a90e3b70db1bd, type: 3}
+  - customMaterialD: 1
     audioClips:
     - {fileID: 8300000, guid: 99153efa1fad28a47bcd9aacc5a31771, type: 3}
     - {fileID: 8300000, guid: 03c21d504fa0d4740afbcc2617a22966, type: 3}
@@ -163,7 +168,7 @@ MonoBehaviour:
   jumpSoundPitchMin: 0.9
   jumpSoundPitchMax: 1.1
   landingSounds:
-  - customMaterialD: 2
+  - customMaterialD: 1
     audioClips:
     - {fileID: 8300000, guid: 3a266f68a4f91e147b440de4590e8d67, type: 3}
     - {fileID: 8300000, guid: 38efa8994ff170841b1ae2c1331c5698, type: 3}
@@ -480,7 +485,7 @@ MonoBehaviour:
   levelEndSound: {fileID: 0}
   playerDeathSound: {fileID: 0}
   playerSwitchSound: {fileID: 0}
-  PressButtonSFX: {fileID: 8300000, guid: e8fb0dc4f743cb545951f9ce84cf8488, type: 3}
+  PressButtonSFX: {fileID: 8300000, guid: 62901d68f9c09524ba43809362580b9d, type: 3}
 --- !u!1001 &3059520369297672186
 PrefabInstance:
   m_ObjectHideFlags: 0

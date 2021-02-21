@@ -46,6 +46,5 @@ MonoBehaviour:
   sceneMusicPlaylist:
   - {fileID: 8300000, guid: ad20622be34426f4da59d76cd1ccfbc2, type: 3}
   - {fileID: 8300000, guid: d9bbc0931a439a446b4d2194c564f7d9, type: 3}
-  sceneAmbiencePlaylist:
-  - {fileID: 8300000, guid: 6b226df33861de94eb96fc8f09bdd712, type: 3}
-  - {fileID: 8300000, guid: e97f58d87e1f37b42b86976ae46ffb2a, type: 3}
+  sceneDefaultAmbience: {fileID: 8300000, guid: 5229a44b2e06b7f44ab2ab6f1a3a8379,
+    type: 3}

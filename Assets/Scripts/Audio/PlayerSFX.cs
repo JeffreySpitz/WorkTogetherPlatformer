@@ -62,19 +62,8 @@ public class PlayerSFX : MonoBehaviour
     {
         if(Input.GetKeyDown("p"))
         {
-            FootstepPlayerSFX();
+            NewListsForEachPlayerSFX();
         }
-
-        if (Input.GetKeyDown("o"))
-        {
-            JumpSoundsPlayerSFX();
-        }
-        if (Input.GetKeyDown("i"))
-        {
-            LandingSoundsPlayerSFX();
-        }
-
-
     }
 
 
@@ -101,7 +90,7 @@ public class PlayerSFX : MonoBehaviour
     #endregion
 
 
-    private void NewListsForEachPlayerSFX()
+    public void NewListsForEachPlayerSFX()
     {
         NewListOfAudioClips(footSteps, currentFootSteps);
         NewListOfAudioClips(jumpSounds, currentJumpSounds);
