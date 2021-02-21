@@ -110,13 +110,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugOn: 1
-  materialID: 2
+  materialID: 0
   currentFootSteps: []
   currentJumpSounds: []
   currentLandingSounds: []
   currentClimbingSounds: []
   footSteps:
-  - customMaterialD: 2
+  - customMaterialD: 0
     audioClips:
     - {fileID: 8300000, guid: f508baaaab0fe7a408cd5ff0a6c277c6, type: 3}
     - {fileID: 8300000, guid: eea088740a2b56e429e3a6dda19915f8, type: 3}
@@ -126,7 +126,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 657760eec48ef2b468ec77ab9dab2c01, type: 3}
     - {fileID: 8300000, guid: 3df61da08b6278f47be85c9d454e4735, type: 3}
     - {fileID: 8300000, guid: 0e883673c82a5bb4386bd8a0aef2c9bf, type: 3}
-  - customMaterialD: 0
+  - customMaterialD: 2
     audioClips:
     - {fileID: 8300000, guid: d8d54904ff1d14849bc7e4dc642523d0, type: 3}
     - {fileID: 8300000, guid: 33056e3f572225741a305c76224969ee, type: 3}
@@ -134,17 +134,17 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 519d86351b7a4614e92d58072156571a, type: 3}
     - {fileID: 8300000, guid: e87f0c623488ffe4895254993012ea65, type: 3}
   footstepLastOmitValue: 1
-  footstepVolume: 0.4
+  footstepVolume: 0.5
   footstepPitchMin: 0.9
   footstepPitchMax: 1.1
   climbingSounds:
-  - customMaterialD: 2
+  - customMaterialD: 0
     audioClips:
     - {fileID: 8300000, guid: 99153efa1fad28a47bcd9aacc5a31771, type: 3}
     - {fileID: 8300000, guid: 03c21d504fa0d4740afbcc2617a22966, type: 3}
     - {fileID: 8300000, guid: 6d4950af76adf114884a90e3b70db1bd, type: 3}
   climbingSoundsLastOmitValue: 1
-  climbingSoundsVolume: 0.7
+  climbingSoundsVolume: 0.9
   climbingSoundsPitchMin: 0.9
   climbingSoundsPitchMax: 1.1
   jumpSounds:
@@ -153,7 +153,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: b33b6d2e61ffa1b46babb2235e26106d, type: 3}
     - {fileID: 8300000, guid: aab434b0a0c9a4d42901e0286c4f3413, type: 3}
     - {fileID: 8300000, guid: 58ab08b03428b3f42b148c5d8c2c34c3, type: 3}
-  - customMaterialD: 2
+  - customMaterialD: 0
     audioClips:
     - {fileID: 8300000, guid: b6d985b984a550c41b70f409e190ee7b, type: 3}
     - {fileID: 8300000, guid: 5ab545480bcd09f4b9c6cb28d07e2514, type: 3}
@@ -227,7 +227,7 @@ MonoBehaviour:
   sceneDefaultMusic: {fileID: 0}
   sceneDefaultAmbience: {fileID: 0}
   muteMusic: 1
-  muteAmb: 1
+  muteAmb: 0
   muteGameSFX: 0
   mutePlayerSFX: 0
 --- !u!114 &667481896
@@ -244,8 +244,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ambienceEmitters: []
   defaultAmbVolume: 1
-  defaultAmbMixer: {fileID: 0}
-  altAmbMixer: {fileID: 0}
+  defaultAmbMixer: {fileID: -6970587288311837355, guid: 87d2bc2f51f228d49bf69ffa52940e4d,
+    type: 2}
+  altAmbMixer: {fileID: 3336095137953409003, guid: 87d2bc2f51f228d49bf69ffa52940e4d,
+    type: 2}
   currentlyPlayingAmbience: {fileID: 0}
   nonPlayingAmbienceEmitter: {fileID: 0}
   defaultAmbienceSnapshot: {fileID: 24500006, guid: 87d2bc2f51f228d49bf69ffa52940e4d,
@@ -478,6 +480,7 @@ MonoBehaviour:
   levelEndSound: {fileID: 0}
   playerDeathSound: {fileID: 0}
   playerSwitchSound: {fileID: 0}
+  PressButtonSFX: {fileID: 8300000, guid: e8fb0dc4f743cb545951f9ce84cf8488, type: 3}
 --- !u!1001 &3059520369297672186
 PrefabInstance:
   m_ObjectHideFlags: 0
