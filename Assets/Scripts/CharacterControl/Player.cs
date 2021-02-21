@@ -258,17 +258,17 @@ public class Player : MonoBehaviour
     {
         if(is_interacting)
         {
-            interact_time += Time.deltaTime;
-            Vector3 current_rotation = transform.eulerAngles;
-            if (interact_time < rotate_time)
-            {
-                float rotate_out = interact_time / rotate_time;
-                float original_rotation = 90f;
-                if (facing_direction < 0)
-                    original_rotation = 270.0f;
-                current_rotation.y = Mathf.Lerp(original_rotation, 0, rotate_out);
-                transform.eulerAngles = current_rotation;
-            }
+            //interact_time += Time.deltaTime;
+            //Vector3 current_rotation = transform.eulerAngles;
+            //if (interact_time < rotate_time)
+            //{
+            //    float rotate_out = interact_time / rotate_time;
+            //    float original_rotation = 90f;
+            //    if (facing_direction < 0)
+            //        original_rotation = 270.0f;
+            //    current_rotation.y = Mathf.Lerp(original_rotation, 0, rotate_out);
+            //    transform.eulerAngles = current_rotation;
+            //}
             //else if (interact_time > (interact_duration - (rotate_time + 0.1f)))
             //{
             //    float rotate_in = (interact_time - (interact_duration - (rotate_time + 0.1f))) / rotate_time;

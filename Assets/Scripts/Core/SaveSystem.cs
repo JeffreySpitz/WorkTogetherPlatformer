@@ -5,13 +5,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class SaveSystem
 {
 
-    public static void SavePlayer(int next_level)
+    public static void SavePlayer(int next_level, int max_level)
     {
         string save_path = Path.Combine(Application.persistentDataPath, "player_data.bin");
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(save_path, FileMode.Create);
 
-        PlayerData data = new PlayerData(next_level);
+        PlayerData data = new PlayerData(next_level, max_level);
 
         formatter.Serialize(stream, data);
         stream.Close();

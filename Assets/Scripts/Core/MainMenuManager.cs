@@ -14,7 +14,7 @@ public class MainMenuManager : MonoBehaviour
         PlayerData d = SaveSystem.LoadPlayer();
         if(d != null)
         {
-            unlocked_levels = d.level;
+            unlocked_levels = d.max_level;
         }
         for (int i = 0; i < levels.Count; i++)
         {
@@ -32,6 +32,20 @@ public class MainMenuManager : MonoBehaviour
     public void LoadScene(string scene_name)
     {
         SceneManager.LoadScene(scene_name);
+    }
+
+    public void LoadLevelNum(int level_num)
+    {
+        PlayerData d = SaveSystem.LoadPlayer();
+        if (d != null)
+        {
+            SaveSystem.SavePlayer(level_num, d.max_level);
+        }
+        else
+        {
+            SaveSystem.SavePlayer(level_num, level_num);
+        }
+        LoadScene("MasterScene");
     }
 
     public void Quit()

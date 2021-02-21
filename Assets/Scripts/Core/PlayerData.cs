@@ -5,10 +5,14 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public int level;
+    public int next_level;
+    public int max_level;
 
-    public PlayerData(int next_level)
+    public PlayerData(int player_next_level, int player_max_level)
     {
-        level = next_level;
+        if (player_next_level != null)
+            next_level = player_next_level;
+        if (player_max_level != null)
+            max_level = player_max_level;
     }
 }

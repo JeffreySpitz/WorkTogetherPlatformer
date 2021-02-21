@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public PlayerController player_controller;
     public Player player1;
     public Player player2;
+    public List<Transform> player1_spawns;
+    public List<Transform> player2_spawns;
 
     private bool is_controlling_player_1 = true;
 
@@ -17,6 +19,11 @@ public class GameManager : MonoBehaviour
         controls = new InputMaster();
         controls.Player.Switch.performed += _ => Switch();
         controls.Player.Pause.performed += _ => PauseSwitch();
+    }
+
+    void SetSpawns()
+    {
+
     }
 
     void Start()
