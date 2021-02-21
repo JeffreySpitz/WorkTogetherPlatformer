@@ -26,10 +26,10 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (player != null)
-        {
-            player.Jump();
-        }
+        //if (player != null)
+        //{
+        //    player.Jump();
+        //}
     }
 
     void Interact()
