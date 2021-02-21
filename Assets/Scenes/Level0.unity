@@ -1030,6 +1030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale_multiplier: 1.2
   scale_time: 0.1
+  is_button: 1
 --- !u!1 &453770266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a0095b7eda41f419b7e0788071c898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 7110091128666450015}
+  target: {fileID: 1297455384}
   smooth_speed: 0.125
   offset: {x: 0, y: 0, z: -4}
 --- !u!81 &453770268
@@ -1558,7 +1559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a0095b7eda41f419b7e0788071c898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 865672117}
+  target: {fileID: 778957733}
   smooth_speed: 0.125
   offset: {x: 0, y: 0, z: -4}
 --- !u!1 &730182803
@@ -1654,6 +1655,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: 14.999985}
+--- !u!4 &778957733 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 669512497769343141, guid: 4edaf8a768269fa41bfb52e527f9bf20,
+    type: 3}
+  m_PrefabInstance: {fileID: 865672116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &797596335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,12 +2000,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4edaf8a768269fa41bfb52e527f9bf20, type: 3}
---- !u!4 &865672117 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2268852581824377999, guid: 4edaf8a768269fa41bfb52e527f9bf20,
-    type: 3}
-  m_PrefabInstance: {fileID: 865672116}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &865672118 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7246138972334847716, guid: 4edaf8a768269fa41bfb52e527f9bf20,
@@ -2736,6 +2737,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause_menu: {fileID: 240611409}
+--- !u!4 &1297455384 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 669512497769343141, guid: 4edaf8a768269fa41bfb52e527f9bf20,
+    type: 3}
+  m_PrefabInstance: {fileID: 7110091128666450014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1307577121
 GameObject:
   m_ObjectHideFlags: 0
@@ -3394,6 +3401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale_multiplier: 1.2
   scale_time: 0.1
+  is_button: 1
 --- !u!1 &1566662321
 GameObject:
   m_ObjectHideFlags: 0
@@ -4192,12 +4200,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4edaf8a768269fa41bfb52e527f9bf20, type: 3}
---- !u!4 &7110091128666450015 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2268852581824377999, guid: 4edaf8a768269fa41bfb52e527f9bf20,
-    type: 3}
-  m_PrefabInstance: {fileID: 7110091128666450014}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7110091128666450016 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7246138972334847716, guid: 4edaf8a768269fa41bfb52e527f9bf20,

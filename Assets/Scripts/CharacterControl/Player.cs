@@ -225,14 +225,17 @@ public class Player : MonoBehaviour
             if (interact_time < rotate_time)
             {
                 float rotate_out = interact_time / rotate_time;
-                current_rotation.y = Mathf.Lerp(90, 0, rotate_out);
+                float original_rotation = 90f;
+                if (facing_direction < 0)
+                    original_rotation = -90f;
+                current_rotation.y = Mathf.Lerp(original_rotation, 0, rotate_out);
                 transform.eulerAngles = current_rotation;
             }
             else if (interact_time > (interact_duration - (rotate_time + 0.1f)))
             {
                 float rotate_in = (interact_time - (interact_duration - (rotate_time + 0.1f))) / rotate_time;
                 Debug.Log("rotating in" + rotate_in);
-                current_rotation.y = Mathf.Lerp(0, 90, rotate_in);
+                current_rotation.y = Mathf.Lerp(0, 90*facing_direction, rotate_in);
                 transform.eulerAngles = current_rotation;
             }
             //Debug.Log("interact time " + interact_time);
