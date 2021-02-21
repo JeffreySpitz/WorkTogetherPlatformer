@@ -165,9 +165,11 @@ public class Player : MonoBehaviour
             
         }
 
-        if (is_grounded && !is_jumping && !is_climbing)
+        if (is_grounded && !is_jumping && !is_climbing && !can_jump)
         {
             can_jump = true;
+            playerSFX.LandingSoundsPlayerSFX();
+
         }
 
     }
