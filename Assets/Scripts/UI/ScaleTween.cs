@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScaleTween : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class ScaleTween : MonoBehaviour
     private float scale_y;
 
     public float scale_multiplier = 1.2f;
-    public float scale_time = 0.5f;
+    public float scale_time = 0.1f;
+    public bool is_button = true;
 
     private void Start()
     {
@@ -18,11 +20,27 @@ public class ScaleTween : MonoBehaviour
 
     public void ScaleUp()
     {
+        if(is_button)
+        {
+            Button button = gameObject.GetComponent<Button>();
+            if(!button.interactable)
+            {
+                return;
+            }
+        }
         LeanTween.scale(gameObject, new Vector2(scale_x * scale_multiplier, scale_y * scale_multiplier), scale_time).setIgnoreTimeScale(true);
     }
 
     public void ScaleDown()
     {
+        if (is_button)
+        {
+            Button button = gameObject.GetComponent<Button>();
+            if (!button.interactable)
+            {
+                return;
+            }
+        }
         LeanTween.scale(gameObject, new Vector2(scale_x, scale_y), scale_time).setIgnoreTimeScale(true);
     }
 
