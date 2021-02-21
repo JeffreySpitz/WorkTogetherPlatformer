@@ -162,9 +162,17 @@ public class Player : MonoBehaviour
         var ground_colliders = Physics.OverlapSphere(ground_check_transform.position, ground_check_radius, ground_layer);
 
         if (ground_colliders.Length != 0)
+        {
+            if (!is_grounded)
+            {
+                playerSFX.LandingSoundsPlayerSFX();
+            }
             is_grounded = true;
+        }
         else
+        {
             is_grounded = false;
+        }
 
         if (rb.velocity.y <= 0.0f && Time.time > time_till_next_jump)
         {
@@ -174,10 +182,9 @@ public class Player : MonoBehaviour
             
         }
 
-        if (is_grounded && !is_jumping && !is_climbing && !can_jump)
+        if (is_grounded && !is_jumping && !is_climbing)
         {
             can_jump = true;
-            playerSFX.LandingSoundsPlayerSFX();
 
         }
 
