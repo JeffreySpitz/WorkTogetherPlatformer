@@ -52,6 +52,11 @@ public class Player : MonoBehaviour
     {
         if (!is_interacting)
         {
+            // climb if we can
+            if (!is_climbing && can_climb)
+            {
+                is_climbing = true;
+            }
             if (!is_climbing && Mathf.Abs(rb.velocity.x) < 0.1 && Mathf.Abs(rb.velocity.y) < 0.1)
             {
                 interact_time = 0;
@@ -87,13 +92,16 @@ public class Player : MonoBehaviour
         {
             float move_x = move_2d.x;
             float move_y = move_2d.y;
-            if (rb.velocity.x > 0 && facing_direction == -1 && move_x > 0)
+            if (!is_climbing || is_grounded)
             {
-                Flip();
-            }
-            else if (rb.velocity.x < 0 && facing_direction == 1 && move_x < 0)
-            {
-                Flip();
+                if (rb.velocity.x > 0 && facing_direction == -1 && move_x > 0)
+                {
+                    Flip();
+                }
+                else if (rb.velocity.x < 0 && facing_direction == 1 && move_x < 0)
+                {
+                    Flip();
+                }
             }
 
 
@@ -117,9 +125,10 @@ public class Player : MonoBehaviour
             {
                 rb.AddForce(Vector3.right * move_x * run_speed, ForceMode.Force);
             }
-            else
+            else if (is_climbing)
             {
-                rb.AddForce(Vector3.right * move_x * run_speed * 0.75f, ForceMode.Force);
+                // climbing on a ladder we want to get off the ladder at the earliest convenience
+                rb.AddForce(transform.forward * Mathf.Abs(move_x) * run_speed * 0.75f, ForceMode.Force);
             }
 
             if (rb.velocity.x > max_horizonal_velocity && move_x > 0)
@@ -186,10 +195,7 @@ public class Player : MonoBehaviour
             can_climb = false;
         }
 
-        if (can_climb && !is_grounded)
-        {
-            is_climbing = true;
-        } else
+        if (!can_climb)
         {
             is_climbing = false;
         }
