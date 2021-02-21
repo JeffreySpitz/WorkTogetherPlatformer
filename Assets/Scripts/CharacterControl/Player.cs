@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     private bool is_climbing = false;
     private bool can_climb = false;
     private bool is_interacting = false;
+    private float interact_time = 0;
     private float max_climbing_speed = 2f;
     private float time_till_next_jump = 0.0f;
     private float facing_direction = 1;
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
     {
         if (!is_climbing && Mathf.Abs(rb.velocity.x) < 0.01 && Mathf.Abs(rb.velocity.y) < 0.01)
         {
+            interact_time = 0;
             is_interacting = true;
             player_animator.SetTrigger("pull_lever");
             StartCoroutine(InteractWait());
@@ -59,6 +61,8 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1);
         is_interacting = false;
     }
+
+
 
     public void Jump()
     {
