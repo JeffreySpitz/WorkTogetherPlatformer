@@ -37,6 +37,9 @@ public class Player : MonoBehaviour
     private PlayerSFX playerSFX;
     private GameSFX gameSFX;
 
+    private float interact_duration = 1.5f;
+    private float rotate_time = 0.3f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -47,18 +50,21 @@ public class Player : MonoBehaviour
 
     public void Interact()
     {
-        if (!is_climbing && Mathf.Abs(rb.velocity.x) < 0.01 && Mathf.Abs(rb.velocity.y) < 0.01)
+        if (!is_interacting)
         {
-            interact_time = 0;
-            is_interacting = true;
-            player_animator.SetTrigger("pull_lever");
-            StartCoroutine(InteractWait());
+            if (!is_climbing && Mathf.Abs(rb.velocity.x) < 0.1 && Mathf.Abs(rb.velocity.y) < 0.1)
+            {
+                interact_time = 0;
+                is_interacting = true;
+                player_animator.SetTrigger("pull_lever");
+                StartCoroutine(InteractWait());
+            }
         }
     }
 
     IEnumerator InteractWait()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(interact_duration);
         is_interacting = false;
     }
 
@@ -199,6 +205,30 @@ public class Player : MonoBehaviour
         CheckGround();
         CheckHorizontal();
         UpdateAnimator();
+        InteractionPerformance();
+    }
+
+    public void InteractionPerformance()
+    {
+        if(is_interacting)
+        {
+            interact_time += Time.deltaTime;
+            Vector3 current_rotation = transform.eulerAngles;
+            if (interact_time < rotate_time)
+            {
+                float rotate_out = interact_time / rotate_time;
+                current_rotation.y = Mathf.Lerp(90, 0, rotate_out);
+                transform.eulerAngles = current_rotation;
+            }
+            else if (interact_time > (interact_duration - (rotate_time + 0.1f)))
+            {
+                float rotate_in = (interact_time - (interact_duration - (rotate_time + 0.1f))) / rotate_time;
+                Debug.Log("rotating in" + rotate_in);
+                current_rotation.y = Mathf.Lerp(0, 90, rotate_in);
+                transform.eulerAngles = current_rotation;
+            }
+            //Debug.Log("interact time " + interact_time);
+        }
     }
 
     //AUDIO
