@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public CapsuleCollider collider;
     public ConstantForce extra_gravity;
     public Light point_light;
+    public bool force_transform = false;
+    public float target_rotation = 90.0f;
     public float target_z_coord = 0.0f;
     public float adjust_lerp = 0.125f;
 
@@ -229,6 +231,8 @@ public class Player : MonoBehaviour
             float correct_rotation = 90.0f;
             if (facing_direction == -1)
                 correct_rotation = 270.0f;
+            if (force_transform)
+                correct_rotation = target_rotation;
             Debug.Log("correct rotation " + correct_rotation + " current rotation " + current_rotation.y);
             current_rotation.y = Mathf.Lerp(current_rotation.y, correct_rotation, adjust_lerp);
             transform.eulerAngles = current_rotation;
@@ -261,7 +265,7 @@ public class Player : MonoBehaviour
                 float rotate_out = interact_time / rotate_time;
                 float original_rotation = 90f;
                 if (facing_direction < 0)
-                    original_rotation = -90f;
+                    original_rotation = 270.0f;
                 current_rotation.y = Mathf.Lerp(original_rotation, 0, rotate_out);
                 transform.eulerAngles = current_rotation;
             }
