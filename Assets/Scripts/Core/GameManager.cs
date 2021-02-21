@@ -34,6 +34,10 @@ public class GameManager : MonoBehaviour
         {
             level_num = d.next_level;
         }
+        Transform player1_spawn = player1_spawns[level_num];
+        Transform player2_spawn = player2_spawns[level_num];
+        player1.transform.position = player1_spawn.position;
+        player2.transform.position = player2_spawn.position;
     }
 
     void Start()
