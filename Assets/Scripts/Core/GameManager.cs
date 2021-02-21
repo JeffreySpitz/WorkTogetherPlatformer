@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public List<Transform> player2_spawns;
 
     private bool is_controlling_player_1 = true;
+    private int level_num = 0;
 
     private void Awake()
     {
@@ -23,7 +24,16 @@ public class GameManager : MonoBehaviour
 
     void SetSpawns()
     {
-
+        PlayerData d = SaveSystem.LoadPlayer();
+        if (d == null)
+        {
+            SaveSystem.SavePlayer(0, 0);
+            level_num = 0;
+        }
+        else
+        {
+            level_num = d.next_level;
+        }
     }
 
     void Start()
