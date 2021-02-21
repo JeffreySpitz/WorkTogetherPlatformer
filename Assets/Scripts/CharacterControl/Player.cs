@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public CapsuleCollider collider;
     public ConstantForce extra_gravity;
     public Light point_light;
+    public float target_z_coord = 0.0f;
+    public float adjust_lerp = 0.125f;
 
     private Rigidbody rb;
     private Animator player_animator;
@@ -128,7 +130,7 @@ public class Player : MonoBehaviour
             else if (is_climbing)
             {
                 // climbing on a ladder we want to get off the ladder at the earliest convenience
-                rb.AddForce(transform.forward * Mathf.Abs(move_x) * run_speed * 0.75f, ForceMode.Force);
+                rb.AddForce(transform.forward * Mathf.Abs(move_x) * run_speed, ForceMode.Force);
             }
 
             if (rb.velocity.x > max_horizonal_velocity && move_x > 0)
@@ -154,7 +156,9 @@ public class Player : MonoBehaviour
     private void Flip()
     {
         facing_direction *= -1;
-        transform.Rotate(0.0f, 180.0f, 0.0f);
+        if (is_climbing)
+            is_climbing = false;
+        //transform.Rotate(0.0f, 180.0f, 0.0f);
     }
 
     private void CheckGround()
@@ -215,12 +219,35 @@ public class Player : MonoBehaviour
         player_animator.SetBool("is_climbing", is_climbing);
     }
 
+    // We use this function to return the player back to the proper coordinates after interaction
+    private void RestorePositionAndRotation()
+    {
+        if (!is_interacting && !is_climbing)
+        {
+            // correct rotation
+            Vector3 current_rotation = transform.eulerAngles;
+            float correct_rotation = 90.0f;
+            if (facing_direction == -1)
+                correct_rotation = 270.0f;
+            Debug.Log("correct rotation " + correct_rotation + " current rotation " + current_rotation.y);
+            current_rotation.y = Mathf.Lerp(current_rotation.y, correct_rotation, adjust_lerp);
+            transform.eulerAngles = current_rotation;
+
+            // correct position
+            Vector3 current_position = transform.position;
+            current_position.z = Mathf.Lerp(current_position.z, target_z_coord, adjust_lerp);
+            transform.position = current_position;
+        }
+
+    }
+
     private void FixedUpdate()
     {
         CheckGround();
         CheckHorizontal();
         UpdateAnimator();
         InteractionPerformance();
+        RestorePositionAndRotation();
     }
 
     public void InteractionPerformance()
@@ -238,13 +265,13 @@ public class Player : MonoBehaviour
                 current_rotation.y = Mathf.Lerp(original_rotation, 0, rotate_out);
                 transform.eulerAngles = current_rotation;
             }
-            else if (interact_time > (interact_duration - (rotate_time + 0.1f)))
-            {
-                float rotate_in = (interact_time - (interact_duration - (rotate_time + 0.1f))) / rotate_time;
-                Debug.Log("rotating in" + rotate_in);
-                current_rotation.y = Mathf.Lerp(0, 90*facing_direction, rotate_in);
-                transform.eulerAngles = current_rotation;
-            }
+            //else if (interact_time > (interact_duration - (rotate_time + 0.1f)))
+            //{
+            //    float rotate_in = (interact_time - (interact_duration - (rotate_time + 0.1f))) / rotate_time;
+            //    Debug.Log("rotating in" + rotate_in);
+            //    current_rotation.y = Mathf.Lerp(0, 90*facing_direction, rotate_in);
+            //    transform.eulerAngles = current_rotation;
+            //}
             //Debug.Log("interact time " + interact_time);
         }
     }
