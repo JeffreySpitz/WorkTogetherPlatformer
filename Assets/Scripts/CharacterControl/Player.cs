@@ -34,12 +34,14 @@ public class Player : MonoBehaviour
     private float facing_direction = 1;
 
     private PlayerSFX playerSFX;
+    private GameSFX gameSFX;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         player_animator = GetComponent<Animator>();
         playerSFX = FindObjectOfType<PlayerSFX>();
+        gameSFX = FindObjectOfType<GameSFX>();
     }
 
     public void Interact()
@@ -194,6 +196,25 @@ public class Player : MonoBehaviour
         CheckHorizontal();
         UpdateAnimator();
     }
+
+    //AUDIO
+    public void FSTrigger()
+    {
+        playerSFX.FootstepPlayerSFX();
+    }
+
+    public void ClimbTrigger()
+    {
+        playerSFX.ClimbingSoundsPlayerSFX();
+        
+    }
+
+    public void CharacterButtonPress()
+    {
+        gameSFX.PlayGameSFX("ButtonSFX");
+    }
+
+
 
 
 }

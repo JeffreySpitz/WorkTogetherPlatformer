@@ -6,14 +6,15 @@ using UnityEngine;
 
 public class GameSFX : MonoBehaviour
 {
-    [SerializeField] bool debugOn;
+    [SerializeField] bool debugOn = false;
 
     [Header("Game SFX Audio Clips")]
     public AudioClip levelStartSound;
     public AudioClip levelEndSound;
     public AudioClip playerDeathSound;
     public AudioClip playerSwitchSound;
-   
+    public AudioClip PressButtonSFX;
+
 
     private AudioSource gameSFXEmitter;
 
@@ -79,6 +80,19 @@ public class GameSFX : MonoBehaviour
             }
             gameSFXEmitter.PlayOneShot(playerSwitchSound);
         }
+        else if (_EventName == "buttonSFX" || _EventName == "ButtonSFX")
+        {
+            if (PressButtonSFX == null)
+            {
+                if (debugOn)
+                {
+                    Debug.Log("Player Switch sound == null - RETURED");
+                }
+                return;
+            }
+            gameSFXEmitter.PlayOneShot(PressButtonSFX);
+        }
+
 
 
         else
