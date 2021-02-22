@@ -144,7 +144,7 @@ public class Player : MonoBehaviour
                 rb.AddForce(Vector3.right * run_speed * 1.25f, ForceMode.Force);
             }
 
-            if (is_grounded && move_x == 0.0f)
+            if (is_grounded && move_x == 0.0f && !is_climbing)
             {
                 collider.material = full_friction;
             }
