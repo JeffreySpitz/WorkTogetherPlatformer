@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public LayerMask ladder_layer;
     public LayerMask interact_layer;
     public Transform ground_check_transform;
+    public Transform chest_check_transform;
     public float ground_check_radius = 0.1f;
     public float jump_delay = 0.5f;
     public PhysicMaterial no_friction;
@@ -239,7 +240,16 @@ public class Player : MonoBehaviour
             can_climb = false;
         }
 
-        if (!can_climb)
+        if (Physics.Raycast(chest_check_transform.position, transform.TransformDirection(Vector3.forward), 0.6f, interact_layer))
+        {
+            can_interact = true;
+        }
+        else
+        {
+            can_interact = false;
+        }
+
+            if (!can_climb)
         {
             is_climbing = false;
         }
