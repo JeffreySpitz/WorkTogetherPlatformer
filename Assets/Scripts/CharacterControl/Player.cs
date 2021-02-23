@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public float target_rotation = 90.0f;
     public float target_z_coord = 0.0f;
     public float adjust_lerp = 0.125f;
+    public bool is_under_control = false;
 
     private Rigidbody rb;
     private Animator player_animator;
@@ -155,6 +156,28 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void OnNoLongerUnderControl()
+    {
+        // invoked when player is no longer being controlled
+        is_under_control = false;
+        point_light.intensity = 0;
+    }
+
+    public void OnUnderControl()
+    {
+        // invoked when a player is being controlled
+        is_under_control = true;
+        point_light.intensity = 1;
+    }
+
+    private void CheckControl()
+    {
+        if(!is_under_control)
+        {
+            collider.material = full_friction;
+        }
+    }
+
     private void Flip()
     {
         facing_direction *= -1;
@@ -252,6 +275,7 @@ public class Player : MonoBehaviour
         UpdateAnimator();
         InteractionPerformance();
         RestorePositionAndRotation();
+        CheckControl();
     }
 
     public void InteractionPerformance()

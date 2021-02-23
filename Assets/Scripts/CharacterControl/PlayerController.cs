@@ -11,9 +11,10 @@ public class PlayerController : MonoBehaviour
     {
         if(player != null)
         {
-            player.point_light.intensity = 0;
+            player.OnNoLongerUnderControl();
         }
         player = new_player;
+        player.OnUnderControl();
         player.point_light.intensity = 1;
     }
 
