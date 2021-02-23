@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float jump_force = 10f;
     public LayerMask ground_layer;
     public LayerMask ladder_layer;
+    public LayerMask interact_layer;
     public Transform ground_check_transform;
     public float ground_check_radius = 0.1f;
     public float jump_delay = 0.5f;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
     private bool is_jumping = false;
     private bool is_climbing = false;
     private bool can_climb = false;
+    private bool can_interact = false;
     private bool is_interacting = false;
     private float interact_time = 0;
     private float max_climbing_speed = 2f;
@@ -57,17 +59,20 @@ public class Player : MonoBehaviour
     {
         if (!is_interacting)
         {
-            // climb if we can
-            if (!is_climbing && can_climb)
+            if (can_interact || can_climb)
             {
-                is_climbing = true;
-            }
-            if (!is_climbing && Mathf.Abs(rb.velocity.x) < 0.1 && Mathf.Abs(rb.velocity.y) < 0.1)
-            {
-                interact_time = 0;
-                is_interacting = true;
-                player_animator.SetTrigger("pull_lever");
-                StartCoroutine(InteractWait());
+                // climb if we can
+                if (!is_climbing && can_climb)
+                {
+                    is_climbing = true;
+                }
+                if (!is_climbing)
+                {
+                    interact_time = 0;
+                    is_interacting = true;
+                    player_animator.SetTrigger("pull_lever");
+                    StartCoroutine(InteractWait());
+                }
             }
         }
     }
@@ -154,6 +159,10 @@ public class Player : MonoBehaviour
                 collider.material = no_friction;
             }
         }
+        else
+        {
+            collider.material = full_friction;
+        }
     }
 
     public void OnNoLongerUnderControl()
@@ -221,7 +230,6 @@ public class Player : MonoBehaviour
 
     private void CheckHorizontal()
     {
-        Debug.DrawRay(ground_check_transform.position, transform.TransformDirection(Vector3.forward) * 0.6f, Color.green, 1.0f);
         if (Physics.Raycast(ground_check_transform.position, transform.TransformDirection(Vector3.forward), 0.6f, ladder_layer))
         {
             can_climb = true;
@@ -256,7 +264,6 @@ public class Player : MonoBehaviour
                 correct_rotation = 270.0f;
             if (force_transform)
                 correct_rotation = target_rotation;
-            Debug.Log("correct rotation " + correct_rotation + " current rotation " + current_rotation.y);
             current_rotation.y = Mathf.Lerp(current_rotation.y, correct_rotation, adjust_lerp);
             transform.eulerAngles = current_rotation;
 

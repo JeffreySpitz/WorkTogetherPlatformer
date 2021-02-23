@@ -187,6 +187,9 @@ MonoBehaviour:
   ladder_layer:
     serializedVersion: 2
     m_Bits: 1024
+  interact_layer:
+    serializedVersion: 2
+    m_Bits: 0
   ground_check_transform: {fileID: 3614418174260867312}
   ground_check_radius: 0.1
   jump_delay: 0.5
@@ -199,6 +202,7 @@ MonoBehaviour:
   target_rotation: 90
   target_z_coord: 0
   adjust_lerp: 0.125
+  is_under_control: 0
 --- !u!1001 &4834577713064061708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,17 +223,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4d883ddc7c13a9442b837c2b0ff8f8ca,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.13
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d883ddc7c13a9442b837c2b0ff8f8ca,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.13
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d883ddc7c13a9442b837c2b0ff8f8ca,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.13
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d883ddc7c13a9442b837c2b0ff8f8ca,
         type: 3}
